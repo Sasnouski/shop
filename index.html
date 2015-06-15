@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Market</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/market.css">
+
+    <script data-main="js/init" src="js/lib/require.js"></script>
+</head>
+<body>
+<!----- Header ----->
+    <header>
+        <a href="#" class="logo"><img src="img/logo.png"></a>
+        <h2>MARKET</h2>
+            <ul>
+                <li><a href="#">Главная</a> |</li>
+                <li><a href="#">Заказы и доставка</a> |</li>
+                <li><a href="#">Контакты</a></li>
+            </ul>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#phones">Телефоны</a></li>
+            <li><a href="#tablets">Планшеты</a></li>
+            <li><a href="#cameras">Фотоаппараты</a></li>
+        </ul>
+
+        <a href="#" class="basket">Корзина <span class="items"> 0 </span></a>
+    </nav>
+<!----- /Header ----->
+
+<!----- Main section ----->
+    <section id="section">
+        <div id="content">
+
+        </div>
+        <div id="pagination">
+
+        </div>
+
+    </section>
+
+    <aside>
+        <h4> Параметры </h4>
+        <hr>
+        <ul>
+        <li>Цена от <input type="text" name="pmin" size="3"> до <input type="text" name="pmax" size="3"></li>
+        <li>Память от <input type="text" name="mmin" size="3"> до <input type="text" name="mmax" size="3"></li>
+        </ul>
+    </aside>
+<!----- /Main section ----->
+
+<!----- Footer ----->
+    <footer>
+        <hr>
+        <div class="tel">
+            Телефоны:
+            <ul>
+                <li>123-456-789</li>
+                <li>123-456-789</li>
+                <li>123-456-789</li>
+            </ul>
+        </div>
+        <div class="fnav">
+            Каталог:
+            <ul>
+                <li><a href="#">Телефоны</a></li>
+                <li><a href="#">Планшеты</a></li>
+                <li><a href="#">Фотоаппараты</a></li>
+            </ul>
+        </div>
+        <div class="form">
+            <form>
+                Email: <input type="text" name="fname" placeholder="Введите email"><br>
+                <input type="submit" value="Submit" class="submit">
+            </form>
+        </div>
+    </footer>
+<!----- /Footer ----->
+
+<script type="text/template" id="pagination-view">
+    <ul>
+        <% for (var i = 1; i <= page ; i++) { %>
+        <li><a  index="<%= i %>" class="pagination"><%= i %></a></li>
+        <% } %>
+    </ul>
+</script>
+
+
+</body>
+</html>

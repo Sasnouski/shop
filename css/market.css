@@ -1,0 +1,235 @@
+
+body{
+    max-width: 960px;
+    padding: 0;
+    margin: 0 auto;
+    font-family: sans-serif;
+}
+
+/*----- header -----*/
+header img{
+    float: left;
+    width: 7%;
+    margin: 1em;
+}
+header h2{
+    float: left;
+    margin-top: 1.5em;
+    margin-left: 0.5em;
+}
+header ul{
+    float: right;
+    margin-top: 2.5em;
+}
+    header ul li{
+        display: inline;
+    }
+        header ul li a{
+            text-decoration: none;
+
+        }
+            header ul li a:hover{
+                text-decoration: underline;
+            }
+/*----- /header -----*/
+
+/*----- navigation -----*/
+nav{
+    clear: both;
+    height: 3em;
+    background: #f0f9ff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #f0f9ff 0%, #cbebff 47%, #a1dbff 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f0f9ff), color-stop(47%,#cbebff), color-stop(100%,#a1dbff)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #f0f9ff 0%,#cbebff 47%,#a1dbff 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #f0f9ff 0%,#cbebff 47%,#a1dbff 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #f0f9ff 0%,#cbebff 47%,#a1dbff 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #f0f9ff 0%,#cbebff 47%,#a1dbff 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f9ff', endColorstr='#a1dbff',GradientType=0 ); /* IE6-9 */
+
+
+}
+    nav ul{
+        float: left;
+        margin-top: 0.8em;
+    }
+        nav ul li{
+            display: inline;
+        }
+            nav ul li a{
+                text-decoration: none;
+                padding: 1.1em;
+            }
+                nav ul li a:hover{
+                    background-color: white;
+                }
+                .active{
+                    background-color: white;
+                }
+    nav .basket{
+        float: right;
+        margin-top: 0.8em;
+        margin-right: 1em;
+        text-decoration: none;
+    }
+        nav .basket:hover{
+
+        }
+            nav .basket .items{
+                background-color: white;
+                border-radius: 10px;
+                padding: 0.2em;
+                font-weight: bold;
+            }
+/*----- /navigation -----*/
+
+/*----- main section -----*/
+section{
+    width: 70%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    float: left;
+}
+    article{
+        float: left;
+        width: 100%;
+        }
+        article .img{
+            float: left;
+            margin-right: 0.5em;
+            width: 20%;
+        }
+            article .img img{
+                display: block;
+                margin:0 auto;
+            }
+        article .descr{
+            float: left;
+            width: 60%;
+            margin-top: 0.5em;
+        }
+            article .descr .pname{
+                text-decoration: none;
+                font-size: 0.9em;
+                font-weight: bold;
+                margin-top: 0.5em;
+            }
+                article .descr .pname:hover{
+                    text-decoration: underline;
+                }
+            article .descr .toBasket{
+                margin-right: 0.2em;
+                font-size: 0.9em;
+            }
+                article .descr .toBasket:hover{
+                    text-decoration: none;
+                }
+            article .descr .compare{
+                margin-left: 0.2em;
+                font-size: 0.9em;
+            }
+                article .descr .compare:hover{
+                    text-decoration: none;
+                }
+            article .descr p{
+                font-size: 0.9em;
+                margin-top: 0.25em;
+                margin-bottom: 0.25em;
+            }
+                article .descr p a{
+
+                }
+                    article .descr p a:hover{
+                        text-decoration: none;
+                    }
+        article .price{
+            float: right;
+            width: 12%;
+            margin-top: 1.5em;
+        }
+    section #pagination{
+        text-align: center;
+    }
+        section #pagination ul{
+            display: inline-block;
+        }
+            section #pagination ul li{
+                display: inline;
+            }
+/*----- /main section -----*/
+
+/*----- aside -----*/
+aside{
+    margin-top: 1em;
+    width: 25%;
+    height: 300px;
+    border: 2px groove silver;
+    float: right;
+    border-radius: 6px;
+    padding: 0.5em;
+    font-size: 0.9em;
+}
+    aside h4{
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        text-align: center;
+    }
+    aside ul{
+        list-style: none;
+        margin-top: 0.5em;
+        margin-left: 0.5em;
+        padding: 0;
+    }
+        aside ul li {
+            margin-top: 0.5em;
+        }
+        aside ul li input {
+            border-radius: 5px;
+        }
+
+/*----- /aside -----*/
+
+/*----- footer -----*/
+footer{
+    margin-top: 1em;
+    clear: both;
+}
+    footer .tel{
+        float: left;
+        margin-left: 2em;
+        border-right: 1px solid silver;
+    }
+        footer .tel ul{
+            margin-top: 0.5em;
+            list-style: none;
+            padding-right: 2em;
+        }
+            footer .tel ul li{
+                margin-top: 0.1em;
+            }
+    footer .fnav{
+        float: left;
+        margin-left: 4em;
+        border-right: 1px solid silver;
+    }
+        footer .fnav ul{
+            margin-top: 0.5em;
+            list-style: none;
+            padding-right: 2em;
+        }
+            footer .fnav ul li{
+                margin-top: 0.1em;
+            }
+                footer .fnav ul li a:hover{
+                    text-decoration: none;
+                }
+    footer .form{
+        margin-left: 3em;
+        float: left;
+    }
+        footer .form input{
+
+        }
+            footer .form .submit{
+                margin-top: 1em;
+            }
+/*----- /footer -----*/
