@@ -28,7 +28,7 @@ define([
         clicked: function(e){
             e.preventDefault();
             var index = $(e.target).attr('index');
-            this.vent.trigger("renderClicked", index);
+            this.vent.trigger("renderClicked", index, $(e.target).data('type'));
             console.log(e.target);
         },
         pagesCounted: function(iterationCount){

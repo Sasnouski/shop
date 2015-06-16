@@ -43,13 +43,14 @@ define([
             }
         },
         render: function(e) {
-            console.log(Backbone.history.fragment);
-            if(Backbone.history.fragment != 'phones'){
-                return false;
-            }
+            //console.log(Backbone.history.fragment);
+            //if(Backbone.history.fragment != 'phones'){
+            //    return false;
+            //}
             //if(e > this.pages.length){
             //    return false;
             //}
+
             this.pages[e].each(function( item ) {
                 this.renderItem( item );
             }, this );
@@ -62,7 +63,10 @@ define([
             });
             this.$el.append( itemView.render().el );
         },
-        renderClicked: function (index) {
+        renderClicked: function (index, type) {
+            if(type != 'phones'){
+                return;
+            }
             if ($('#content').html() != '') {
                 $('#content').children('article').remove();
             }
@@ -72,6 +76,7 @@ define([
             this.paginationView.render(this.iterationCount);
             console.log('pagination rendered');
             $('.pagination ').attr("href", "#phones");
+            $('.pagination ').data("type", "phones");
             console.log('href changed to phones');
         }
 
