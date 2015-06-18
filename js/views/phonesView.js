@@ -13,9 +13,6 @@ define([
     var PhonesView = Backbone.View.extend({
         el: '#content',
         initialize: function( options ) {
-            this.on('all', function(eventName){
-                console.log('TableView: ' + eventName);
-            });
             _.bindAll(this, "renderClicked");
             options.vent.bind("renderClicked", this.renderClicked);
             this.collection =  new Phones( options.phones );
@@ -43,14 +40,6 @@ define([
             }
         },
         render: function(e) {
-            //console.log(Backbone.history.fragment);
-            //if(Backbone.history.fragment != 'phones'){
-            //    return false;
-            //}
-            //if(e > this.pages.length){
-            //    return false;
-            //}
-
             this.pages[e].each(function( item ) {
                 this.renderItem( item );
             }, this );
@@ -63,10 +52,7 @@ define([
             });
             this.$el.append( itemView.render().el );
         },
-        renderClicked: function (index, type) {
-            if(type != 'phones'){
-                return;
-            }
+        renderClicked: function (index) {
             if ($('#content').html() != '') {
                 $('#content').children('article').remove();
             }
@@ -76,10 +62,8 @@ define([
             this.paginationView.render(this.iterationCount);
             console.log('pagination rendered');
             $('.pagination ').attr("href", "#phones");
-            $('.pagination ').data("type", "phones");
             console.log('href changed to phones');
         }
-
     });
     return PhonesView;
 

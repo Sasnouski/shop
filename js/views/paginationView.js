@@ -28,7 +28,8 @@ define([
         clicked: function(e){
             e.preventDefault();
             var index = $(e.target).attr('index');
-            this.vent.trigger("renderClicked", index, $(e.target).data('type'));
+            //var type = $(e.target).data('type');
+            this.vent.trigger( "renderClicked", index );
             console.log(e.target);
         },
         pagesCounted: function(iterationCount){

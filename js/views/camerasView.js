@@ -13,11 +13,10 @@ define([
     var CamerasView = Backbone.View.extend({
         el: '#content',
         initialize: function( options ) {
-            //this.listenTo(this.collection, "reset", this.paginationView.remove());
             _.bindAll(this, "renderClicked");
             options.vent.bind("renderClicked", this.renderClicked);
             this.collection =  new Cameras( options.cameras );
-            this.camerasPaginationView =  new PaginationView({vent: vent});
+            this.paginationView =  new PaginationView({vent: vent});
             options.vent.trigger("pagesCounted", this.iterationCount);
             var that = this;
             this.collection.fetch({
@@ -37,14 +36,8 @@ define([
                 tempCollection.models = tempCollection.models.slice( i*this.collection.perPage, i*this.collection.perPage + this.collection.perPage );
                 this.pages.push( tempCollection );
             }
-
         },
         render: function(e) {
-            //console.log(Backbone.history.fragment);
-            //if(Backbone.history.fragment != 'cameras'){
-            //    return false;
-            //}
-
             this.pages[e].each(function( item ) {
                 this.renderItem( item );
             }, this );
@@ -57,20 +50,16 @@ define([
             });
             this.$el.append( cameraView.render().el );
         },
-        renderClicked: function (index, type) {
-            if(type != 'cameras'){
-                return;
-            }
+        renderClicked: function (index) {
             if ($('#content').html() != '') {
                 $('#content').children('article').remove();
             }
             this.render(index-1);
         },
         renderPagination: function(){
-            this.camerasPaginationView.render(this.iterationCount);
+            this.paginationView.render(this.iterationCount);
             console.log('pagination rendered');
             $('.pagination ').attr("href", "#cameras");
-            $('.pagination ').data("type", "cameras");
             console.log('href changed to cameras');
         }
     });

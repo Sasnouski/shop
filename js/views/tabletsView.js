@@ -13,9 +13,6 @@ define([
     var TabletsView = Backbone.View.extend({
         el: '#content',
         initialize: function( options ) {
-            this.on('all', function(eventName){
-                console.log('TableView: ' + eventName);
-            });
             _.bindAll(this, "renderClicked");
             options.vent.bind("renderClicked", this.renderClicked);
             this.collection =  new Tablets( options.tablets );
@@ -30,7 +27,6 @@ define([
                     that.renderPagination();
                 }
             });
-
         },
         calculateCount: function () {
             this.pages = [];
@@ -43,17 +39,11 @@ define([
             }
         },
         render: function(e) {
-            //console.log(Backbone.history.fragment);
-            //if(Backbone.history.fragment != 'tablets'){
-            //    return false;
-            //}
-
             this.pages[e].each(function( item ) {
                 this.renderItem( item );
             }, this );
             console.log('tablets rendered');
             return this;
-
         },
         renderItem: function( item ) {
             var itemView = new ItemView({
@@ -61,24 +51,18 @@ define([
             });
             this.$el.append( itemView.render().el );
         },
-        renderClicked: function (index, type) {
-            if(type != 'tablets'){
-                return;
-            }
+        renderClicked: function (index) {
             if ($('#content').html() != '') {
                 $('#content').children('article').remove();
             }
             this.render(index-1);
-
         },
         renderPagination: function(){
             this.paginationView.render(this.iterationCount);
             console.log('pagination rendered');
             $('.pagination ').attr("href", "#tablets");
-            $('.pagination ').data("type", "tablets");
             console.log('href changed to tablets');
         }
-
     });
     return TabletsView;
 
