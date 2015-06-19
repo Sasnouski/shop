@@ -28,7 +28,6 @@ define([
         clicked: function(e){
             e.preventDefault();
             var index = $(e.target).attr('index');
-            //var type = $(e.target).data('type');
             this.vent.trigger( "renderClicked", index );
             console.log(e.target);
         },

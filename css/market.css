@@ -161,17 +161,50 @@ section{
 
 .singleImage{
     float: left;
-    width: 33%;
+    width: 40%;
     height: 400px;
-    border: 1px solid black;
+    position: relative;
 }
-    .singleImage img{
-        width: 100%;
+    .mainImage{
+        width: 30%;
+        margin: 1em auto;
+        display: block;
+    }
+    .imageThumbnailContainer {
+        width: 340px;
+        margin-left: 1.5em;
+        margin-top: 2em;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+        .imageThumbnail {
+            display: inline-block;
+            max-width: 100px;
+            padding: 0.5em;
+            margin-left: 0.75em;
+        }
+            .imageThumbnail img{
+                width: 100%;
+            }
+    .previousImage{
+        position: absolute;
+        bottom: 4em;
+        width: 6%;
+        height: 40px;
+        background: url('../img/arrows.png') no-repeat 3% 0%;
+    }
+    .nextImage{
+        position: absolute;
+        bottom: 4em;
+        right: 0em;
+        width: 6%;
+        height: 40px;
+        background: url('../img/arrows.png') no-repeat 16% 0%;
     }
 
 .singleContent{
     float: right;
-    width: 65%;
+    width: 58%;
     height: 400px;
     margin-left: 1em;
     border: 1px solid black;
