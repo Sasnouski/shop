@@ -164,6 +164,7 @@ section{
     width: 40%;
     height: 400px;
     position: relative;
+    margin-top: 1em;
 }
     .mainImage{
         width: 30%;
@@ -204,23 +205,32 @@ section{
 
 .singleContent{
     float: right;
-    width: 58%;
+    width: 55%;
     height: 400px;
     margin-left: 1em;
-    border: 1px solid black;
+    margin-top: 1em;
 }
+    .singleContent h3{
+
+    }
+    .singleContent h4{
+        margin-top: 1em;
+    }
 .singleDescr{
     float: left;
     width: 100%;
     height: 400px;
     margin-top: 1em;
-    border: 1px solid black;
 }
-
-
-
-
-
+    .singleDescr table{
+        width: 100%;
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+        .singleDescr table td{
+            margin-left: 1em;
+            margin-right: 1em;
+        }
 
 
 
