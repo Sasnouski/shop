@@ -9,15 +9,15 @@ define([
     'views/detailedPhoneView',
     'views/tabletsView',
     'views/camerasView'
-], function( $, _, Backbone, vent, PhonesView, DetailedPhone, TabletsView, CamerasView ){
+], function( $, _, Backbone, vent, PhonesView, DetailedPhone, TabletsView, CamerasView){
 
     var Router = Backbone.Router.extend({
         routes: {
-                  '' : 'setPhones',
-            'phones' : 'setPhones',
-            'phones/:itemTitle' : 'setPhone',
-           'tablets' : 'setTablets',
-           'cameras' : 'setCameras'
+                      '' : 'setPhones',
+                'phones' : 'setPhones',
+           'phones/:cid' : 'setPhone',
+               'tablets' : 'setTablets',
+               'cameras' : 'setCameras'
         },
         initialize: function() {
             Backbone.history.start();
@@ -33,14 +33,15 @@ define([
             console.log('phones view created');
             $("[href='#phones']").addClass('active');
         },
-        setPhone: function(){
+        setPhone: function(cid){
+            var phonesCollection = this.view.collection;
             if (this.view){
                 this.view.$el.empty().off();
                 this.view.paginationView.$el.empty().off();
                 $('aside').hide();
             }
-            this.view = new DetailedPhone();
-
+            console.log(phonesCollection);
+            this.view = new DetailedPhone({model: phonesCollection.get(cid)});
             console.log(this.view);
         },
         setTablets: function (){
