@@ -15,7 +15,7 @@ define([
         routes: {
                       '' : 'setPhones',
                 'phones' : 'setPhones',
-           'phones/:cid' : 'setPhone',
+     'phones/:itemTitle' : 'setPhone',
                'tablets' : 'setTablets',
                'cameras' : 'setCameras'
         },
@@ -23,26 +23,28 @@ define([
             Backbone.history.start();
         },
         setPhones: function (){
-            if (this.view) {
+            if( this.view && this.view.vent ) {
                 this.view.paginationView.vent._events = [];
                 this.view.$el.empty().off();
                 this.view.paginationView.$el.empty().off();
                 console.log('view cleared');
             }
+            else if(this.view){
+                this.view.$el.empty().off();
+            }
             this.view = new PhonesView({vent: vent});
-            console.log('phones view created');
             $("[href='#phones']").addClass('active');
         },
-        setPhone: function(cid){
+        setPhone: function(itemTitle){
             var phonesCollection = this.view.collection;
             if (this.view){
                 this.view.$el.empty().off();
                 this.view.paginationView.$el.empty().off();
                 $('aside').hide();
             }
-            console.log(phonesCollection);
-            this.view = new DetailedPhone({model: phonesCollection.get(cid)});
-            console.log(this.view);
+            var phone = phonesCollection.where({itemTitle: itemTitle});
+            this.view = new DetailedPhone({model: phone});
+            $('#section').append(this.view.render().el);
         },
         setTablets: function (){
             if (this.view) {
@@ -52,7 +54,6 @@ define([
                 console.log('view cleared');
             }
             this.view = new TabletsView({vent: vent});
-            console.log('tablets view created');
             $("[href='#tablets']").addClass('active');
         },
         setCameras: function(){

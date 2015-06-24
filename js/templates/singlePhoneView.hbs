@@ -4,9 +4,9 @@
     <img class="mainImage" src="{{ itemThumbImgUrl }}">
     <div class="previousImage"></div>
     <div class="imageThumbnailContainer">
-        <div class="imageThumbnail"><img src="http://content2.onliner.by/catalog/device/100/f16849c646ec7b06d7ceaa62c1a1b883.jpg"></div>
-        <div class="imageThumbnail"><img src="http://content2.onliner.by/catalog/device/100/a9aff5160a082f3b78ee134a2ec5b181.jpg"></div>
-        <div class="imageThumbnail"><img src="http://content2.onliner.by/catalog/device/100/536360343c3cba7ee8d7c308a29cbbb1.jpg"></div>
+        {{#each techInfo.thumbs}}
+        <div class="imageThumbnail"><img src="{{thumbURL}}"></div>
+        {{/each}}
 
     </div>
     <div class="nextImage"></div>
@@ -15,19 +15,97 @@
 <div class="singleContent">
     <h3>{{itemTitle}}</h3>
     <h4>{{price.min}}$</h4>
-    <p>{{ common_descript.value}}</p>
-    <a href="#" class="toBasket">� �������</a> |
-    <a href="#" class="compare">��������</a>
+    <p>{{techInfo.common_descript.value}}</p>
+    <a href="#" class="toBasket">В корзину</a> |
+    <a href="#" class="compare">Сравнить</a>
 </div>
 
 <div class="singleDescr">
+    <h3>Технические характеристики</h3>
     <table>
-        <tr><td>{{birthday.title}}</td> <td>{{birthday.value}}</td></tr>
-        <tr><td>{{band.title}}</td> <td>{{band.value}}</td></tr>
-        <tr><td>{{smart.title}}</td> <td>{{smart.value}}</td></tr>
-        <tr><td>{{os.title}}</td> <td>{{os.value}}</td></tr>
-        <tr><td>{{cpu.title}}</td> <td>{{cpu.value}}</td></tr>
-        <tr><td>{{cpu_freq.title}}</td> <td>{{cpu_freq.value}}</td></tr>
-        <tr><td>{{numberofcoresmob.title}}</td> <td>{{numberofcoresmob.value}}</td></tr>
+        <tr><td>{{techInfo.birthday.title}}</td> <td>{{techInfo.birthday.value}}</td></tr>
+        <tr><td>{{techInfo.band.title}}</td> <td>{{techInfo.band.value}}</td></tr>
+        <tr><td>{{techInfo.smart.title}}</td> <td>{{techInfo.smart.value}}</td></tr>
+        <tr><td>{{techInfo.os.title}}</td> <td>{{techInfo.os.value}}</td></tr>
+        <tr><td>{{techInfo.cpu.title}}</td> <td>{{techInfo.cpu.value}}</td></tr>
+        <tr><td>{{techInfo.cpu_freq.title}}</td> <td>{{techInfo.cpu_freq.value}}</td></tr>
+        <tr><td>{{techInfo.numberofcoresmob.title}}</td> <td>{{techInfo.numberofcoresmob.value}}</td></tr>
+        <tr><td>{{techInfo.graph_accelerat.title}}</td> <td>{{techInfo.graph_accelerat.value}}</td></tr>
+        <tr><td>{{techInfo.dual_sim.title}}</td> <td>{{techInfo.dual_sim.value}}</td></tr>
+        <tr><td>{{techInfo.construction.title}}</td> <td>{{techInfo.construction.value}}</td></tr>
+        <tr><td>{{techInfo.ext_ant_jack.title}}</td> <td>{{techInfo.ext_ant_jack.value}}</td></tr>
+        <tr><td>{{techInfo.panels.title}}</td> <td>{{techInfo.panels.value}}</td></tr>
+        <tr><td>{{techInfo.ring_stereo.title}}</td> <td>{{techInfo.ring_stereo.value}}</td></tr>
+        <tr><td>{{techInfo.case_type.title}}</td> <td>{{techInfo.case_type.value}}</td></tr>
+        <tr><td>{{techInfo.case_color.title}}</td> <td>{{techInfo.case_color.value}}</td></tr>
+        <tr><td>{{techInfo.protection.title}}</td> <td>{{techInfo.protection.value}}</td></tr>
+        <tr><td>{{techInfo.qwerty.title}}</td> <td>{{techInfo.qwerty.value}}</td></tr>
+        <tr><td>{{techInfo.simcard_format.title}}</td> <td>{{techInfo.simcard_format.value}}</td></tr>
+        <tr><td>{{techInfo.fingerprint.title}}</td> <td>{{techInfo.fingerprint.value}}</td></tr>
+        <tr><td>{{techInfo.project_photo.title}}</td> <td>{{techInfo.project_photo.value}}</td></tr>
+        <tr><td>{{techInfo.m_torchlight.title}}</td> <td>{{techInfo.m_torchlight.value}}</td></tr>
+        <tr><td>{{techInfo.length.title}}</td> <td>{{techInfo.length.value}}</td></tr>
+        <tr><td>{{techInfo.width.title}}</td> <td>{{techInfo.width.value}}</td></tr>
+        <tr><td>{{techInfo.thickness.title}}</td> <td>{{techInfo.thickness.value}}</td></tr>
+        <tr><td>{{techInfo.weight.title}}</td> <td>{{techInfo.weight.value}}</td></tr>
+        <tr><td>{{techInfo.accelerometer.title}}</td> <td>{{techInfo.accelerometer.value}}</td></tr>
+        <tr><td>{{techInfo.gyroscope.title}}</td> <td>{{techInfo.gyroscope.value}}</td></tr>
+        <tr><td>{{techInfo.light_sensor.title}}</td> <td>{{techInfo.light_sensor.value}}</td></tr>
+        <tr><td>{{techInfo.mob_displaytech.title}}</td> <td>{{techInfo.mob_displaytech.value}}</td></tr>
+        <tr><td>{{techInfo.display_colors.title}}</td> <td>{{techInfo.display_colors.value}}</td></tr>
+        <tr><td>{{techInfo.mob_displaydiag.title}}</td> <td>{{techInfo.mob_displaydiag.value}}</td></tr>
+        <tr><td>{{techInfo.mob_displayresol.title}}</td> <td>{{techInfo.mob_displayresol.value}}</td></tr>
+        <tr><td>{{techInfo.mob_displaydpi.title}}</td> <td>{{techInfo.mob_displaydpi.value}}</td></tr>
+        <tr><td>{{techInfo.sens_screen.title}}</td> <td>{{techInfo.sens_screen.value}}</td></tr>
+        <tr><td>{{techInfo.gorilla_glass.title}}</td> <td>{{techInfo.gorilla_glass.value}}</td></tr>
+        <tr><td>{{techInfo.screenglove.title}}</td> <td>{{techInfo.screenglove.value}}</td></tr>
+        <tr><td>{{techInfo.auto_focus.title}}</td> <td>{{techInfo.auto_focus.value}}</td></tr>
+        <tr><td>{{techInfo.stabilizer.title}}</td> <td>{{techInfo.stabilizer.value}}</td></tr>
+        <tr><td>{{techInfo.cam.title}}</td> <td>{{techInfo.cam.value}}</td></tr>
+        <tr><td>{{techInfo.cam_mpx.title}}</td> <td>{{techInfo.cam_mpx.value}}</td></tr>
+        <tr><td>{{techInfo.zoom_specs.title}}</td> <td>{{techInfo.zoom_specs.value}}</td></tr>
+        <tr><td>{{techInfo.cam_video_res.title}}</td> <td>{{techInfo.cam_video_res.value}}</td></tr>
+        <tr><td>{{techInfo.video_frame_rate.title}}</td> <td>{{techInfo.video_frame_rate.value}}</td></tr>
+        <tr><td>{{techInfo.cam_additional.title}}</td> <td>{{techInfo.cam_additional.value}}</td></tr>
+        <tr><td>{{techInfo.tv_tuner_m.title}}</td> <td>{{techInfo.tv_tuner_m.value}}</td></tr>
+        <tr><td>{{techInfo.intern_flash.title}}</td> <td>{{techInfo.intern_flash.value}}</td></tr>
+        <tr><td>{{techInfo.spkfone.title}}</td> <td>{{techInfo.spkfone.value}}</td></tr>
+        <tr><td>{{techInfo.dict.title}}</td> <td>{{techInfo.dict.value}}</td></tr>
+        <tr><td>{{techInfo.mp3player.title}}</td> <td>{{techInfo.mp3player.value}}</td></tr>
+        <tr><td>{{techInfo.fmtuner.title}}</td> <td>{{techInfo.fmtuner.value}}</td></tr>
+        <tr><td>{{techInfo.fmmodulator.title}}</td> <td>{{techInfo.fmmodulator.value}}</td></tr>
+        <tr><td>{{techInfo.mem_share.title}}</td> <td>{{techInfo.mem_share.value}}</td></tr>
+        <tr><td>{{techInfo.mem_flash.title}}</td> <td>{{techInfo.mem_flash.value}}</td></tr>
+        <tr><td>{{techInfo.memcards.title}}</td> <td>{{techInfo.memcards.value}}</td></tr>
+        <tr><td>{{techInfo.gps.title}}</td> <td>{{techInfo.gps.value}}</td></tr>
+        <tr><td>{{techInfo.glonass_support.title}}</td> <td>{{techInfo.glonass_support.value}}</td></tr>
+        <tr><td>{{techInfo.geotagging.title}}</td> <td>{{techInfo.geotagging.value}}</td></tr>
+        <tr><td>{{techInfo.edge.title}}</td> <td>{{techInfo.edge.value}}</td></tr>
+        <tr><td>{{techInfo.hspa.title}}</td> <td>{{techInfo.hspa.value}}</td></tr>
+        <tr><td>{{techInfo.hspaplus.title}}</td> <td>{{techInfo.hspaplus.value}}</td></tr>
+        <tr><td>{{techInfo.lte.title}}</td> <td>{{techInfo.lte.value}}</td></tr>
+        <tr><td>{{techInfo.bluetooth.title}}</td> <td>{{techInfo.bluetooth.value}}</td></tr>
+        <tr><td>{{techInfo.ebook_audioout.title}}</td> <td>{{techInfo.ebook_audioout.value}}</td></tr>
+        <tr><td>{{techInfo.wifi.title}}</td> <td>{{techInfo.wifi.value}}</td></tr>
+        <tr><td>{{techInfo.wimax.title}}</td> <td>{{techInfo.wimax.value}}</td></tr>
+        <tr><td>{{techInfo.usb.title}}</td> <td>{{techInfo.usb.value}}</td></tr>
+        <tr><td>{{techInfo.usb_otg.title}}</td> <td>{{techInfo.usb_otg.value}}</td></tr>
+        <tr><td>{{techInfo.mhl.title}}</td> <td>{{techInfo.mhl.value}}</td></tr>
+        <tr><td>{{techInfo.hdmi_out.title}}</td> <td>{{techInfo.hdmi_out.value}}</td></tr>
+        <tr><td>{{techInfo.screencasting.title}}</td> <td>{{techInfo.screencasting.value}}</td></tr>
+        <tr><td>{{techInfo.nfc.title}}</td> <td>{{techInfo.nfc.value}}</td></tr>
+        <tr><td>{{techInfo.ir_port.title}}</td> <td>{{techInfo.ir_port.value}}</td></tr>
+        <tr><td>{{techInfo.lightning.title}}</td> <td>{{techInfo.lightning.value}}</td></tr>
+        <tr><td>{{techInfo.acc_type.title}}</td> <td>{{techInfo.acc_type.value}}</td></tr>
+        <tr><td>{{techInfo.acc_capacity.title}}</td> <td>{{techInfo.acc_capacity.value}}</td></tr>
+        <tr><td>{{techInfo.acc_static.title}}</td> <td>{{techInfo.acc_static.value}}</td></tr>
+        <tr><td>{{techInfo.talktime.title}}</td> <td>{{techInfo.talktime.value}}</td></tr>
+        <tr><td>{{techInfo.standby.title}}</td> <td>{{techInfo.standby.value}}</td></tr>
+        <tr><td>{{techInfo.solar_panel.title}}</td> <td>{{techInfo.solar_panel.value}}</td></tr>
+
+
+
+
+
     </table>
 </div>
