@@ -51,6 +51,8 @@ define([
                 model: item
             });
             this.$el.append( itemView.render().el );
+            $('aside').show();
+            $("[href='#phones']").addClass('active');
         },
         renderClicked: function (index) {
             if ($('#content').html() != '') {

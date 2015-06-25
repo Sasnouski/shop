@@ -27,24 +27,24 @@ define([
                 this.view.paginationView.vent._events = [];
                 this.view.$el.empty().off();
                 this.view.paginationView.$el.empty().off();
-                console.log('view cleared');
             }
-            else if(this.view){
+            else if( this.view ){
                 this.view.$el.empty().off();
             }
-            this.view = new PhonesView({vent: vent});
-            $("[href='#phones']").addClass('active');
+            this.view = new PhonesView({ vent: vent });
         },
         setPhone: function(itemTitle){
-            var phonesCollection = this.view.collection;
-            if (this.view){
-                this.view.$el.empty().off();
+            if ( this.view ){
+                this.view.paginationView.vent._events = [];
                 this.view.paginationView.$el.empty().off();
-                $('aside').hide();
+                this.view.$el.empty().off();
             }
-            var phone = phonesCollection.where({itemTitle: itemTitle});
-            this.view = new DetailedPhone({model: phone});
-            $('#section').append(this.view.render().el);
+            this.view = new DetailedPhone(itemTitle);
+            $('#section').append( this.view.render().el );
+            $('aside').hide();
+
+
+
         },
         setTablets: function (){
             if (this.view) {

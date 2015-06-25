@@ -84,11 +84,14 @@ nav{
 
 /*----- main section -----*/
 section{
-
     margin-top: 1em;
     margin-bottom: 1em;
     float: left;
 }
+    #content{
+        width: 70%;
+        float: left;
+    }
     article{
         float: left;
         width: 100%;
@@ -148,6 +151,7 @@ section{
         }
     section #pagination{
         text-align: center;
+        clear: both;
     }
         section #pagination ul{
             display: inline-block;
