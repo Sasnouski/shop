@@ -14,14 +14,5 @@ define([
 
     });
 
-    // --- fix for table empty td
-    if( $('table tr td').innerHTML == ''){
-        $('table tr td').style.display="none";
-    }
-    //_.map($('table tr td'), function( el ){
-    //    if(el.innerHTML == ''){
-    //        el.style.display = 'none';
-    //    }
-    //})
 });
 

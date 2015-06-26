@@ -8,8 +8,9 @@ define([
     'views/phonesView',
     'views/detailedPhoneView',
     'views/tabletsView',
+    'views/detailedTabletView',
     'views/camerasView'
-], function( $, _, Backbone, vent, PhonesView, DetailedPhone, TabletsView, CamerasView){
+], function( $, _, Backbone, vent, PhonesView, DetailedPhone, TabletsView, DetailedTablet, CamerasView){
 
     var Router = Backbone.Router.extend({
         routes: {
@@ -17,6 +18,7 @@ define([
                 'phones' : 'setPhones',
      'phones/:itemTitle' : 'setPhone',
                'tablets' : 'setTablets',
+    'tablets/:itemTitle' : 'setTablet',
                'cameras' : 'setCameras'
         },
         initialize: function() {
@@ -41,20 +43,27 @@ define([
             }
             this.view = new DetailedPhone(itemTitle);
             $('#section').append( this.view.render().el );
-            $('aside').hide();
-
-
-
         },
         setTablets: function (){
-            if (this.view) {
+            if ( this.view && this.view.vent ) {
                 this.view.paginationView.vent._events = [];
                 this.view.$el.empty().off();
                 this.view.paginationView.$el.empty().off();
-                console.log('view cleared');
             }
-            this.view = new TabletsView({vent: vent});
+            else if( this.view ){
+                this.view.$el.empty().off();
+            }
+            this.view = new TabletsView({ vent: vent });
             $("[href='#tablets']").addClass('active');
+        },
+        setTablet: function(itemTitle){
+            if ( this.view ){
+                this.view.paginationView.vent._events = [];
+                this.view.paginationView.$el.empty().off();
+                this.view.$el.empty().off();
+            }
+            this.view = new DetailedTablet(itemTitle);
+            $('#section').append( this.view.render().el );
         },
         setCameras: function(){
             if (this.view) {

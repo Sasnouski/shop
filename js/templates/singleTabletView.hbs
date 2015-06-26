@@ -1,0 +1,24 @@
+
+
+<div class="singleImage">
+    <img class="mainImage" src="{{ itemThumbImgUrl }}">
+    <div class="previousImage"></div>
+    <div class="imageThumbnailContainer">
+        {{#each techInfo.thumbs}}
+            <div class="imageThumbnail"><img src="{{thumbURL}}"></div>
+        {{/each}}
+    </div>
+    <div class="nextImage"></div>
+</div>
+
+<div class="singleContent">
+    <h3>{{itemTitle}}</h3>
+    <h4>{{price.min}}$</h4>
+    <p>{{techInfo.common_descript.value}}</p>
+    <a href="#" class="toBasket">В корзину</a> |
+    <a href="#" class="compare">Сравнить</a>
+</div>
+
+<div class="singleDescr">
+    <h3>Технические характеристики</h3>
+</div>

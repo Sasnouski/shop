@@ -26,6 +26,8 @@ define([
         render: function() {
             if(this.phone){
                 this.$el.html( this.template( this.phone[0].toJSON() ));
+
+                $('aside').hide();
                 _.map($('table tr td'), function( el ){
                     if(el.innerHTML == ''){
                         el.style.display = 'none';
