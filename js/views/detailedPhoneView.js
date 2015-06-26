@@ -11,6 +11,7 @@ define([
 
     var DetailedPhone = Backbone.View.extend({
         tagName: 'div',
+        id:'detailed',
         template: Handlebars.compile( Template ),
         initialize: function(itemTitle) {
             var that = this;

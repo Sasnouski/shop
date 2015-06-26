@@ -9,8 +9,9 @@ define([
     'text!templates/singleTabletView.hbs'
 ], function($, _, Backbone, Tablets, Handlebars, Template) {
 
-    var DetailedTablet= Backbone.View.extend({
+    var DetailedTablet = Backbone.View.extend({
         tagName: 'div',
+        id:'detailed',
         template: Handlebars.compile( Template ),
         initialize: function(itemTitle) {
             var that = this;
@@ -24,8 +25,9 @@ define([
             });
         },
         render: function() {
-            if(this.tablets){
+            if(this.tablet){
                 this.$el.html( this.template( this.tablet[0].toJSON() ));
+
                 $('aside').hide();
                 //_.map($('table tr td'), function( el ){
                 //    if(el.innerHTML == ''){

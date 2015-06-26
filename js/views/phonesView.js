@@ -44,6 +44,12 @@ define([
                 this.renderItem( item );
             }, this );
             console.log('phones rendered');
+
+            $('.pname').each(function(){
+                var partURL = $(this).attr('href');
+                $(this).attr('href', '#phones/' + partURL);
+            });
+
             return this;
         },
         renderItem: function( item ) {

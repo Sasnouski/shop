@@ -25,13 +25,27 @@ define([
             Backbone.history.start();
         },
         setPhones: function (){
-            if( this.view && this.view.vent ) {
+
+            //if(this.view == undefined){
+            //    this.view = new PhonesView({ vent: vent });
+            //}
+            //else if(this.view.hasOwnProperty('paginationView')){
+            //    this.view.paginationView.vent._events = [];
+            //    this.view.$el.empty().off();
+            //    this.view.paginationView.$el.empty().off();
+            //    this.view = new PhonesView({ vent: vent });
+            //}
+            //else {
+            //    this.view.$el.remove();
+            //}
+
+            if( this.view  && this.view.vent ) {
                 this.view.paginationView.vent._events = [];
                 this.view.$el.empty().off();
                 this.view.paginationView.$el.empty().off();
             }
             else if( this.view ){
-                this.view.$el.empty().off();
+                this.view.$el.empty();
             }
             this.view = new PhonesView({ vent: vent });
         },
@@ -51,7 +65,7 @@ define([
                 this.view.paginationView.$el.empty().off();
             }
             else if( this.view ){
-                this.view.$el.empty().off();
+                this.view.$el.empty();
             }
             this.view = new TabletsView({ vent: vent });
             $("[href='#tablets']").addClass('active');

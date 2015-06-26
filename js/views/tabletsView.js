@@ -43,6 +43,12 @@ define([
                 this.renderItem( item );
             }, this );
             console.log('tablets rendered');
+
+            $('.pname').each(function(){
+                var partURL = $(this).attr('href');
+                $(this).attr('href', '#tablets/' + partURL);
+            });
+
             return this;
         },
         renderItem: function( item ) {
