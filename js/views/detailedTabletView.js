@@ -25,10 +25,9 @@ define([
             });
         },
         render: function() {
+            $('aside').hide();
             if(this.tablet){
                 this.$el.html( this.template( this.tablet[0].toJSON() ));
-
-                $('aside').hide();
                 //_.map($('table tr td'), function( el ){
                 //    if(el.innerHTML == ''){
                 //        el.style.display = 'none';

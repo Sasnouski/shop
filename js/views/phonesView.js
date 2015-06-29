@@ -53,11 +53,11 @@ define([
             return this;
         },
         renderItem: function( item ) {
+            $('aside').show();
             var itemView = new ItemView({
                 model: item
             });
             this.$el.append( itemView.render().el );
-            $('aside').show();
             $("[href='#phones']").addClass('active');
         },
         renderClicked: function (index) {

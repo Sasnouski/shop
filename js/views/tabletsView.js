@@ -48,6 +48,7 @@ define([
                 var partURL = $(this).attr('href');
                 $(this).attr('href', '#tablets/' + partURL);
             });
+            $("[href='#tablets']").addClass('active');
 
             return this;
         },

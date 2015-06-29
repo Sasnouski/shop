@@ -42,6 +42,13 @@ define([
                 this.renderItem( item );
             }, this );
             console.log('cameras rendered');
+
+            $('.pname').each(function(){
+                var partURL = $(this).attr('href');
+                $(this).attr('href', '#cameras/' + partURL);
+            });
+            $("[href='#cameras']").addClass('active');
+
             return this;
         },
         renderItem: function( item ) {

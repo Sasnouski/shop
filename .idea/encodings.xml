@@ -1,7 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/js/app.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/collections/camerasCollection.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/collections/phonesCollection.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/collections/tabletsCollection.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/init.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/market.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/models/itemModel.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/routers/router.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/templates/singleCameraView.hbs" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/js/templates/singlePhoneView.hbs" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/js/templates/singleTabletView.hbs" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/vent.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/views/camerasView.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/views/detailedCameraView.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/views/detailedPhoneView.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/views/detailedTabletView.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/views/itemView.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/views/paginationView.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/views/phonesView.js" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/js/views/tabletsView.js" charset="UTF-8" />
   </component>
 </project>
