@@ -45,7 +45,7 @@ define([
                 this.renderItem( item );
             }, this );
             console.log('phones rendered');
-
+            // ----- jquery switching logic
             $('aside').show();
             $.injectCSS({
                 "#content": {
@@ -56,7 +56,7 @@ define([
                 var partURL = $(this).attr('href');
                 $(this).attr('href', '#phones/' + partURL);
             });
-
+            // -----
             return this;
         },
         renderItem: function( item ) {

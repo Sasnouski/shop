@@ -43,7 +43,7 @@ define([
                 this.renderItem( item );
             }, this );
             console.log('cameras rendered');
-
+            // ----- jquery switching logic
             $('aside').show();
             $.injectCSS({
                 "#content": {
@@ -55,7 +55,7 @@ define([
                 $(this).attr('href', '#cameras/' + partURL);
             });
             $("[href='#cameras']").addClass('active');
-
+            // -----
             return this;
         },
         renderItem: function( item ) {

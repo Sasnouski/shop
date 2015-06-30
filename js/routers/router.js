@@ -30,10 +30,6 @@ define([
             if ( this.view && this.view.paginationView == undefined ) {
                 this.view.$el.empty();
             }
-
-            //else if(this.view == undefined){
-            //    return;
-            //}
             else if( this.view ){
                 this.view.paginationView.vent._events = [];
                 this.view.paginationView.$el.empty().off();

@@ -44,7 +44,7 @@ define([
                 this.renderItem( item );
             }, this );
             console.log('tablets rendered');
-
+            // ----- jquery switching logic
             $('aside').show();
             $.injectCSS({
                 "#content": {
@@ -56,7 +56,7 @@ define([
                 $(this).attr('href', '#tablets/' + partURL);
             });
             $("[href='#tablets']").addClass('active');
-
+            // -----
             return this;
         },
         renderItem: function( item ) {
