@@ -6,7 +6,8 @@ define([
     'backbone',
     'collections/tabletsCollection',
     'handlebars',
-    'text!templates/singleTabletView.hbs'
+    'text!templates/singleTabletView.hbs',
+    'injectCSS'
 ], function($, _, Backbone, Tablets, Handlebars, Template) {
 
     var DetailedTablet = Backbone.View.extend({
@@ -25,15 +26,22 @@ define([
             });
         },
         render: function() {
-            $('aside').hide();
             if(this.tablet){
                 this.$el.html( this.template( this.tablet[0].toJSON() ));
-                //_.map($('table tr td'), function( el ){
-                //    if(el.innerHTML == ''){
-                //        el.style.display = 'none';
-                //    }
-                //})
+                $('aside').hide();
+                _.map($('.singleDescr table tr td'), function( el ){
+                    if(el.innerHTML == ''){
+                        el.style.display = 'none';
+                    }
+                });
+                $('aside').hide();
+                $.injectCSS({
+                    "#content": {
+                        width: "100%"
+                    }
+                });
             }
+
             return this;
         }
     });

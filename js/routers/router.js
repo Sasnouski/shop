@@ -27,27 +27,17 @@ define([
             Backbone.history.start();
         },
         setPhones: function (){
-
-            //if(this.view == undefined){
-            //    this.view = new PhonesView({ vent: vent });
-            //}
-            //else if(this.view.hasOwnProperty('paginationView')){
-            //    this.view.paginationView.vent._events = [];
-            //    this.view.$el.empty().off();
-            //    this.view.paginationView.$el.empty().off();
-            //    this.view = new PhonesView({ vent: vent });
-            //}
-            //else {
-            //    this.view.$el.remove();
-            //}
-
-            if( this.view  && this.view.vent ) {
-                this.view.paginationView.vent._events = [];
-                this.view.$el.empty().off();
-                this.view.paginationView.$el.empty().off();
-            }
-            else if( this.view ){
+            if ( this.view && this.view.paginationView == undefined ) {
                 this.view.$el.empty();
+            }
+
+            //else if(this.view == undefined){
+            //    return;
+            //}
+            else if( this.view ){
+                this.view.paginationView.vent._events = [];
+                this.view.paginationView.$el.empty().off();
+                this.view.$el.empty().off();
             }
             this.view = new PhonesView({ vent: vent });
         },
@@ -61,13 +51,14 @@ define([
             $('#section').append( this.view.render().el );
         },
         setTablets: function (){
-            if ( this.view && this.view.vent ) {
-                this.view.paginationView.vent._events = [];
-                this.view.$el.empty().off();
-                this.view.paginationView.$el.empty().off();
-            }
-            else if( this.view ){
+            console.log(this.view);
+            if ( this.view && this.view.paginationView == undefined ) {
                 this.view.$el.empty();
+            }
+            else {
+                this.view.paginationView.vent._events = [];
+                this.view.paginationView.$el.empty().off();
+                this.view.$el.empty().off();
             }
             this.view = new TabletsView({ vent: vent });
         },
@@ -81,17 +72,19 @@ define([
             $('#section').append( this.view.render().el );
         },
         setCameras: function(){
-            if (this.view) {
+            if ( this.view && this.view.paginationView == undefined ) {
+                this.view.$el.empty();
+            }
+            else {
                 this.view.paginationView.vent._events = [];
-                this.view.$el.empty().off();
                 this.view.paginationView.$el.empty().off();
-                console.log('view cleared');
+                this.view.$el.empty().off();
             }
             this.view = new CamerasView({vent: vent});
             console.log('cameras view created');
         },
         setCamera: function(itemTitle){
-            if ( this.view ){
+            if ( this.view  ){
                 this.view.paginationView.vent._events = [];
                 this.view.paginationView.$el.empty().off();
                 this.view.$el.empty().off();

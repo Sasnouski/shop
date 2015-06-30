@@ -7,11 +7,12 @@ define([
     'vent',
     'collections/tabletsCollection',
     'views/itemView',
-    'views/paginationView'
+    'views/paginationView',
+    'injectCSS'
 ], function($, _, Backbone, vent, Tablets, ItemView, PaginationView) {
 
     var TabletsView = Backbone.View.extend({
-        el: '#content',
+        el: '#section',
         initialize: function( options ) {
             _.bindAll(this, "renderClicked");
             options.vent.bind("renderClicked", this.renderClicked);
@@ -44,6 +45,12 @@ define([
             }, this );
             console.log('tablets rendered');
 
+            $('aside').show();
+            $.injectCSS({
+                "#content": {
+                    width: "70%"
+                }
+            });
             $('.pname').each(function(){
                 var partURL = $(this).attr('href');
                 $(this).attr('href', '#tablets/' + partURL);
@@ -59,8 +66,8 @@ define([
             this.$el.append( itemView.render().el );
         },
         renderClicked: function (index) {
-            if ($('#content').html() != '') {
-                $('#content').children('article').remove();
+            if ($('#section').html() != '') {
+                $('#section').children('article').remove();
             }
             this.render(index-1);
         },

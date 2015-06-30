@@ -6,10 +6,11 @@ define([
     'backbone',
     'collections/camerasCollection',
     'handlebars',
-    'text!templates/singleCameraView.hbs'
+    'text!templates/singleCameraView.hbs',
+    'injectCSS'
 ], function($, _, Backbone, Cameras, Handlebars, Template) {
 
-    var DetailedPhone = Backbone.View.extend({
+    var DetailedCamera = Backbone.View.extend({
         tagName: 'div',
         id:'detailed',
         template: Handlebars.compile( Template ),
@@ -28,16 +29,22 @@ define([
             if(this.camera){
                 this.$el.html( this.template( this.camera[0].toJSON() ));
 
-                $('aside').hide();
-                _.map($('table tr td'), function( el ){
+                _.map($('.singleDescr table tr td'), function( el ){
                     if(el.innerHTML == ''){
                         el.style.display = 'none';
                     }
-                })
+                });
+                $('aside').hide();
+
+                $.injectCSS({
+                    "#content": {
+                        width: "100%"
+                    }
+                });
             }
             return this;
         }
     });
-    return DetailedPhone;
+    return DetailedCamera;
 
 });

@@ -5,6 +5,7 @@ requirejs.config({
     paths: {
         'init': '../init',
         'jquery': 'jquery-2.1.4.min',
+        'injectCSS' : 'jquery.injectCSS',
         'backbone': 'backbone-min',
         'underscore': 'underscore-min',
         'handlebars': 'handlebars-v3.0.3',
@@ -27,6 +28,9 @@ requirejs.config({
         },
         'handlebars': {
             exports: 'Handlebars'
+        },
+        'injectCSS': {
+            deps: [ 'jquery']
         }
     }
 

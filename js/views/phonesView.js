@@ -7,11 +7,12 @@ define([
     'vent',
     'collections/phonesCollection',
     'views/itemView',
-    'views/paginationView'
+    'views/paginationView',
+    'injectCSS'
 ], function($, _, Backbone, vent,  Phones, ItemView, PaginationView) {
 
     var PhonesView = Backbone.View.extend({
-        el: '#content',
+        el: '#section',
         initialize: function( options ) {
             _.bindAll(this, "renderClicked");
             options.vent.bind("renderClicked", this.renderClicked);
@@ -45,6 +46,12 @@ define([
             }, this );
             console.log('phones rendered');
 
+            $('aside').show();
+            $.injectCSS({
+                "#content": {
+                    width: "70%"
+                }
+            });
             $('.pname').each(function(){
                 var partURL = $(this).attr('href');
                 $(this).attr('href', '#phones/' + partURL);
@@ -53,7 +60,6 @@ define([
             return this;
         },
         renderItem: function( item ) {
-            $('aside').show();
             var itemView = new ItemView({
                 model: item
             });
@@ -61,8 +67,8 @@ define([
             $("[href='#phones']").addClass('active');
         },
         renderClicked: function (index) {
-            if ($('#content').html() != '') {
-                $('#content').children('article').remove();
+            if ($('#section').html() != '') {
+                $('#section').children('article').remove();
             }
             this.render(index-1);
         },

@@ -7,11 +7,12 @@ define([
     'vent',
     'collections/camerasCollection',
     'views/itemView',
-    'views/paginationView'
+    'views/paginationView',
+    'injectCSS'
 ], function($, _, Backbone, vent, Cameras, ItemView, PaginationView) {
 
     var CamerasView = Backbone.View.extend({
-        el: '#content',
+        el: '#section',
         initialize: function( options ) {
             _.bindAll(this, "renderClicked");
             options.vent.bind("renderClicked", this.renderClicked);
@@ -43,6 +44,12 @@ define([
             }, this );
             console.log('cameras rendered');
 
+            $('aside').show();
+            $.injectCSS({
+                "#content": {
+                    width: "70%"
+                }
+            });
             $('.pname').each(function(){
                 var partURL = $(this).attr('href');
                 $(this).attr('href', '#cameras/' + partURL);
@@ -58,8 +65,8 @@ define([
             this.$el.append( cameraView.render().el );
         },
         renderClicked: function (index) {
-            if ($('#content').html() != '') {
-                $('#content').children('article').remove();
+            if ($('#section').html() != '') {
+                $('#section').children('article').remove();
             }
             this.render(index-1);
         },

@@ -83,13 +83,13 @@ nav{
 /*----- /navigation -----*/
 
 /*----- main section -----*/
-section{
+#content{
     margin-top: 1em;
     margin-bottom: 1em;
     float: left;
+    width: 70%;
 }
-    #content{
-        width: 70%;
+    #section{
         float: left;
     }
     article{
@@ -149,14 +149,14 @@ section{
             width: 12%;
             margin-top: 1.5em;
         }
-    section #pagination{
+    #pagination{
         text-align: center;
         clear: both;
     }
-        section #pagination ul{
+        #pagination ul{
             display: inline-block;
         }
-            section #pagination ul li{
+            #pagination ul li{
                 display: inline;
             }
 /*----- /main section -----*/
@@ -245,6 +245,7 @@ section{
 /*----- /single product view -----*/
 /*----- aside -----*/
 aside{
+    display: block;
     margin-top: 1em;
     width: 25%;
     height: 300px;

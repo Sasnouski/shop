@@ -6,7 +6,9 @@ define([
     'backbone',
     'collections/phonesCollection',
     'handlebars',
-    'text!templates/singlePhoneView.hbs'
+    'text!templates/singlePhoneView.hbs',
+    'injectCSS'
+
 ], function($, _, Backbone, Phones, Handlebars, Template) {
 
     var DetailedPhone = Backbone.View.extend({
@@ -25,15 +27,23 @@ define([
             });
         },
         render: function() {
-            $('aside').fadeOut('slow');
-            _.map($('table tr td'), function( el ){
+            if(this.phone){
+                this.$el.html( this.template( this.phone[0].toJSON() ));
+            }
+
+            _.map($('.singleDescr table tr td'), function( el ){
                 if(el.innerHTML == ''){
                     el.style.display = 'none';
                 }
             });
-            if(this.phone){
-                this.$el.html( this.template( this.phone[0].toJSON() ));
-            }
+            $('aside').hide();
+
+            $.injectCSS({
+                "#content": {
+                    width: "100%"
+                }
+            });
+
             return this;
         }
     });
